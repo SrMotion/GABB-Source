@@ -1459,28 +1459,7 @@ namespace GABB {
 				hr = URLDownloadToFile(0, Url, File, 0, 0);
 
 			}
-			if (File_Exits("Utils\\HostsPatch.exe"))
-			{
-
-			}
-			else
-			{
-				HRESULT hrz;
-				LPCTSTR Urlz = _T("https://github.com/SrMotion/GABB/raw/master/HostsPatch.exe"),
-					Filez = _T("Utils\\HostsPatch.exe");
-				hrz = URLDownloadToFile(0, Urlz, Filez, 0, 0);
-			}
-			if (File_Exits("Utils\\ResetHosts.exe"))
-			{
-
-			}
-			else
-			{
-				HRESULT hrzz;
-				LPCTSTR Urlzz = _T("https://github.com/SrMotion/GABB/raw/master/ResetHosts.exe"),
-					Filezz = _T("Utils\\ResetHosts.exe");
-				hrzz = URLDownloadToFile(0, Urlzz, Filezz, 0, 0);
-			}
+			
 		}
 		else
 		{
@@ -1489,14 +1468,7 @@ namespace GABB {
 			LPCTSTR Url = _T("https://github.com/SrMotion/GABB/raw/master/proxy.exe"),
 				File = _T("Utils\\Proxy.exe");
 			hr = URLDownloadToFile(0, Url, File, 0, 0);
-			HRESULT hrz;
-			LPCTSTR Urlz = _T("https://github.com/SrMotion/GABB/raw/master/HostsPatch.exe"),
-				Filez = _T("Utils\\HostsPatch.exe");
-			hrz = URLDownloadToFile(0, Urlz, Filez, 0, 0);
-			HRESULT hrzz;
-			LPCTSTR Urlzz = _T("https://github.com/SrMotion/GABB/raw/master/ResetHosts.exe"),
-				Filezz = _T("Utils\\ResetHosts.exe");
-			hrzz = URLDownloadToFile(0, Urlzz, Filezz, 0, 0);
+
 		}
 		
 		MessageBoxW(NULL, L"If You Have Any Question SrMotion#1337", L"Information!", MB_OK | MB_ICONEXCLAMATION);
@@ -1710,8 +1682,19 @@ namespace GABB {
 
 	private: System::Void Form1_FormClosing(System::Object^  sender, System::Windows::Forms::FormClosingEventArgs^  e) {
 		KillProcessByName("Proxy.exe");
-		ShellExecute(NULL, _T("open"), _T("Utils\\ResetHosts.exe"), NULL, NULL, SW_HIDE);
+		try
+		{
+			std::ofstream dosyaYazzz("C:\\Windows\\System32\\drivers\\etc\\hosts");
 
+			if (dosyaYazzz.is_open()) {
+				dosyaYazzz << "";
+				dosyaYazzz.close();
+			}
+		}
+		catch (int excp)
+		{
+
+		}
 		GABBE::Close();
 	}
 
@@ -2023,31 +2006,41 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	   //}
 	   //soon :v
 private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	if (File_Exits("Utils\\HostsPatch.exe"))
-	{
-		ShellExecute(NULL, _T("open"), _T("Utils\\HostsPatch.exe"), NULL, NULL, SW_HIDE);
-		Loglar->Items->Add("Hosts Patched Succesfuly!");
-	}
-	else
-	{
-		MessageBoxW(NULL, L"HostsPatcher Bulunamadi,Lutfen Programi Kapatip Tekrar Acin! Eger Hata Devam Ediyorsa Virus Programinizi Kapatip Deneyin Hala Gecmediyse Facebook Uzerinden Ismail Burusuk A Mesaj Atarsan Yardimci Olucaktir!", L"Error!", MB_OK | MB_ICONEXCLAMATION);
+		try
+		{
+			std::ofstream dosyaYaz("C:\\Windows\\System32\\drivers\\etc\\hosts");
 
-	}
+			if (dosyaYaz.is_open()) {
+				dosyaYaz << "127.0.0.1 growtopia1.com\n127.0.0.1 growtopia2.com";
+				dosyaYaz.close();
+			}
+		}
+		catch (int excp)
+		{
+		
+		}		
+		Loglar->Items->Add("Hosts Patched Succesfuly!");
+
 
 }
 private: System::Void groupBox3_Enter(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void button1_Click_2(System::Object^ sender, System::EventArgs^ e) {
-	if (File_Exits("Utils\\ResetHosts.exe"))
+	try
 	{
-		ShellExecute(NULL, _T("open"), _T("Utils\\ResetHosts.exe"), NULL, NULL, SW_HIDE);
-		Loglar->Items->Add("Hosts Resetted Succesfuly!");
+		std::ofstream dosyaYazz("C:\\Windows\\System32\\drivers\\etc\\hosts");
+
+		if (dosyaYazz.is_open()) {
+			dosyaYazz << "";
+			dosyaYazz.close();
+		}
 	}
-	else
+	catch (int excp)
 	{
-		MessageBoxW(NULL, L"HostsResetter Bulunamadi,Lutfen Programi Kapatip Tekrar Acin! Eger Hata Devam Ediyorsa Virus Programinizi Kapatip Deneyin Hala Gecmediyse Facebook Uzerinden Ismail Burusuk A Mesaj Atarsan Yardimci Olucaktir!", L"Error!", MB_OK | MB_ICONEXCLAMATION);
 
 	}
+		Loglar->Items->Add("Hosts Resetted Succesfuly!");
+
 	
 
 }
