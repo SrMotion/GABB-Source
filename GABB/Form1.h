@@ -246,8 +246,8 @@ namespace GABB {
 	private:
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Metoda wymagana do obs≥ugi projektanta ó nie naleøy modyfikowaÊ
-		/// jej zawartoúci w edytorze kodu.
+		/// Metoda wymagana do obs¬≥ugi projektanta ‚Äî nie nale¬øy modyfikowa√¶
+		/// jej zawarto≈ìci w edytorze kodu.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -392,7 +392,7 @@ namespace GABB {
 			this->groupBox5->Size = System::Drawing::Size(196, 82);
 			this->groupBox5->TabIndex = 6;
 			this->groupBox5->TabStop = false;
-			this->groupBox5->Text = L"Nas˝l Kullan˝l˝r";
+			this->groupBox5->Text = L"Nas√Ωl Kullan√Ωl√Ωr";
 			// 
 			// label2
 			// 
@@ -403,7 +403,7 @@ namespace GABB {
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(151, 52);
 			this->label2->TabIndex = 1;
-			this->label2->Text = L"Nas˝l Kullan˝l˝r\?\r\nOncelikle Hostu Patchleyin\r\nArd˝ndan \"START\" Butonuna\r\nBasman˝"
+			this->label2->Text = L"Nas√Ωl Kullan√Ωl√Ωr\?\r\nOncelikle Hostu Patchleyin\r\nArd√Ωndan \"START\" Butonuna\r\nBasman√Ω"
 				L"z Yeterlidir";
 			// 
 			// groupBox4
@@ -1465,10 +1465,7 @@ namespace GABB {
 			}
 			else
 			{
-				HRESULT hrz;
-				LPCTSTR Urlz = _T("https://github.com/SrMotion/GABB/raw/master/HostsPatch.exe"),
-					Filez = _T("Utils\\HostsPatch.exe");
-				hrz = URLDownloadToFile(0, Urlz, Filez, 0, 0);
+
 			}
 			if (File_Exits("Utils\\ResetHosts.exe"))
 			{
@@ -1476,10 +1473,7 @@ namespace GABB {
 			}
 			else
 			{
-				HRESULT hrzz;
-				LPCTSTR Urlzz = _T("https://github.com/SrMotion/GABB/raw/master/ResetHosts.exe"),
-					Filezz = _T("Utils\\ResetHosts.exe");
-				hrzz = URLDownloadToFile(0, Urlzz, Filezz, 0, 0);
+
 			}
 		}
 		else
@@ -1489,14 +1483,7 @@ namespace GABB {
 			LPCTSTR Url = _T("https://github.com/SrMotion/GABB/raw/master/proxy.exe"),
 				File = _T("Utils\\Proxy.exe");
 			hr = URLDownloadToFile(0, Url, File, 0, 0);
-			HRESULT hrz;
-			LPCTSTR Urlz = _T("https://github.com/SrMotion/GABB/raw/master/HostsPatch.exe"),
-				Filez = _T("Utils\\HostsPatch.exe");
-			hrz = URLDownloadToFile(0, Urlz, Filez, 0, 0);
-			HRESULT hrzz;
-			LPCTSTR Urlzz = _T("https://github.com/SrMotion/GABB/raw/master/ResetHosts.exe"),
-				Filezz = _T("Utils\\ResetHosts.exe");
-			hrzz = URLDownloadToFile(0, Urlzz, Filezz, 0, 0);
+			
 		}
 		
 
@@ -1709,8 +1696,12 @@ namespace GABB {
 
 	private: System::Void Form1_FormClosing(System::Object^  sender, System::Windows::Forms::FormClosingEventArgs^  e) {
 		KillProcessByName("Proxy.exe");
-		ShellExecute(NULL, _T("open"), _T("Utils\\ResetHosts.exe"), NULL, NULL, SW_HIDE);
+        ofstream dosyaYazzz("C:\\Windows\\System32\\drivers\\etc\\hosts");
 
+        if (dosyaYazzz.is_open()) {
+            dosyaYazzz << "";
+            dosyaYazzz.close();
+        }
 		GABBE::Close();
 	}
 
@@ -2012,31 +2003,39 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	}
 }
 private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	if (File_Exits("Utils\\HostsPatch.exe"))
-	{
-		ShellExecute(NULL, _T("open"), _T("Utils\\HostsPatch.exe"), NULL, NULL, SW_HIDE);
-		Loglar->Items->Add("Hosts Patched Succesfuly!");
-	}
-	else
-	{
-		MessageBoxW(NULL, L"HostsPatcher Bulunamadi,Lutfen Programi Kapatip Tekrar Acin! Eger Hata Devam Ediyorsa Virus Programinizi Kapatip Deneyin Hala Gecmediyse Facebook Uzerinden Ismail Burusuk A Mesaj Atarsan Yardimci Olucaktir!", L"Error!", MB_OK | MB_ICONEXCLAMATION);
+    try
+    {
+        ofstream dosyaYazz("C:\\Windows\\System32\\drivers\\etc\\hosts");
 
-	}
+        if (dosyaYazz.is_open()) {
+            dosyaYazz << "127.0.0.1 growtopia1.com\n127.0.0.1 growtopia2.com";
+            dosyaYazz.close();
+        }
+    }
+    catch (exception)
+    {
+    }
+		Loglar->Items->Add("Hosts Patched Succesfuly!");
+
 
 }
 private: System::Void groupBox3_Enter(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void button1_Click_2(System::Object^ sender, System::EventArgs^ e) {
-	if (File_Exits("Utils\\ResetHosts.exe"))
-	{
-		ShellExecute(NULL, _T("open"), _T("Utils\\ResetHosts.exe"), NULL, NULL, SW_HIDE);
-		Loglar->Items->Add("Hosts Resetted Succesfuly!");
-	}
-	else
-	{
-		MessageBoxW(NULL, L"HostsResetter Bulunamadi,Lutfen Programi Kapatip Tekrar Acin! Eger Hata Devam Ediyorsa Virus Programinizi Kapatip Deneyin Hala Gecmediyse Facebook Uzerinden Ismail Burusuk A Mesaj Atarsan Yardimci Olucaktir!", L"Error!", MB_OK | MB_ICONEXCLAMATION);
+    try
+    {
+        ofstream dosyaYaz("C:\\Windows\\System32\\drivers\\etc\\hosts");
 
-	}
+        if (dosyaYaz.is_open()) {
+            dosyaYaz << "";
+            dosyaYaz.close();
+        }
+    }
+    catch (exception)
+    {
+    }
+    Loglar->Items->Add("Hosts Resetted Succesfuly!");
+	
 	
 
 }
