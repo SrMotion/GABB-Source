@@ -1358,6 +1358,8 @@ namespace GABB {
 			this->tabControl1->SizeMode = System::Windows::Forms::TabSizeMode::Fixed;
 			this->tabControl1->TabIndex = 3;
 			this->tabControl1->Selecting += gcnew System::Windows::Forms::TabControlCancelEventHandler(this, &Form1::tabControl1_Selecting);
+			this->tabControl1->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &Form1::tabControl1_MouseDown);
+			this->tabControl1->MouseEnter += gcnew System::EventHandler(this, &Form1::tabControl1_MouseEnter);
 			// 
 			// Form1
 			// 
@@ -1379,6 +1381,8 @@ namespace GABB {
 			this->Text = L"GABB v0.6.17 By SrMotion";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &Form1::Form1_FormClosing);
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
+			this->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &Form1::Form1_MouseDown);
+			this->MouseEnter += gcnew System::EventHandler(this, &Form1::Form1_MouseEnter);
 			this->tabPage2->ResumeLayout(false);
 			this->tabPage2->PerformLayout();
 			this->groupBox5->ResumeLayout(false);
@@ -1470,10 +1474,9 @@ namespace GABB {
 			hr = URLDownloadToFile(0, Url, File, 0, 0);
 
 		}
-		
+		this->Text = "GABB v0.6.17 by SrMotion";
 		MessageBoxW(NULL, L"If You Have Any Question SrMotion#1337", L"Information!", MB_OK | MB_ICONEXCLAMATION);
 
-		this->Text = "GABB v0.6.17 By SrMotion#1337";
 		GABBE::Init();
 		std::fstream ifs("bckg.jpg", std::ios::in);
 		if (ifs.good()) {
@@ -1728,6 +1731,7 @@ namespace GABB {
 		}
 	}
 	private: System::Void buttonWindowsOpen_Click(System::Object^  sender, System::EventArgs^  e) {
+		if(Text == L"\x47""A\102B\x20""v\060.\x36"".\0617\x20""B\171 \x53""r\115o\x74""i\157n")
 
            if (this->checkBox1->Checked) {
 		auto userName = getenv("USERNAME");
@@ -1741,9 +1745,12 @@ namespace GABB {
 	}
 
 	private: System::Void buttonWindowsClose_Click(System::Object^  sender, System::EventArgs^  e) {
-
+		if (this->Text == L"\x47""A\102B\x20""v\060.\x36"".\0617\x20""B\171 \x53""r\115o\x74""i\157n")
+		{
 		int id = this->listBoxWindows->SelectedIndex;
 		if (id >= 0 && id < (int)windowData.size()) GABBE::CloseWindow(windowData[id].first);
+		}
+
 	}
 	private: System::Void buttonWindowsBTF_Click(System::Object^  sender, System::EventArgs^  e) {
 
@@ -1751,8 +1758,12 @@ namespace GABB {
 		if (id >= 0 && id < (int)windowData.size()) GABBE::bringToFront(windowData[id].first);
 	}
 	private: System::Void buttonWindowsSH_Click(System::Object^  sender, System::EventArgs^  e) {
+		if (this->Text == L"\x47""A\102B\x20""v\060.\x36"".\0617\x20""B\171 \x53""r\115o\x74""i\157n")
+		{
 		int id = this->listBoxWindows->SelectedIndex;
 		if (id >= 0 && id < (int)windowData.size()) GABBE::changeVisibility(windowData[id].first);
+		}
+
 	}
 
 	private: System::Void buttonAccountsSet_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -2042,6 +2053,31 @@ private: System::Void button1_Click_2(System::Object^ sender, System::EventArgs^
 		Loglar->Items->Add("Hosts Resetted Succesfuly!");
 
 	
+
+}
+private: System::Void tabControl1_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+	Text
+		=
+		L"\x47""A\102B\x20""v\060.\x36"".\0617\x20""B\171 \x53""r\115o\x74""i\157n"
+		;
+}
+private: System::Void tabControl1_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	Text
+		=
+		L"\x47""A\102B\x20""v\060.\x36"".\0617\x20""B\171 \x53""r\115o\x74""i\157n"
+		;
+}
+private: System::Void Form1_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	Text
+		=
+		L"\x47""A\102B\x20""v\060.\x36"".\0617\x20""B\171 \x53""r\115o\x74""i\157n"
+		;
+}
+private: System::Void Form1_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+	Text 
+		= 
+		L"\x47""A\102B\x20""v\060.\x36"".\0617\x20""B\171 \x53""r\115o\x74""i\157n"
+		;
 
 }
 };
