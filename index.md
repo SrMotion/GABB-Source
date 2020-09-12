@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
 
 <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Welcome to GitHub Pages | GABB-Source</title>
+<title>GABB-Source</title>
 <meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="Welcome to GitHub Pages" />
 <meta property="og:locale" content="en_US" />
@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://srmotion.github.io/GABB-Source/" />
 <meta property="og:site_name" content="GABB-Source" />
 <script type="application/ld+json">
-{"headline":"Welcome to GitHub Pages","@type":"WebSite","url":"https://srmotion.github.io/GABB-Source/","description":"Edited Growtopia Gabb Source","name":"GABB-Source","@context":"https://schema.org"}</script>
+{"headline":"","@type":"WebSite","url":"https://srmotion.github.io/GABB-Source/","description":"Edited Growtopia Gabb Source","name":"GABB-Source","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,10 +33,6 @@
 
     <section class="main-content">
       <h2 id="welcome-to-github-pages">Welcome to GitHub Pages</h2>
-
-<p>You can use the <a href="https://github.com/SrMotion/GABB-Source/edit/gh-pages/index.md">editor on GitHub</a> to maintain and preview the content for your website in Markdown files.</p>
-
-<p>Whenever you commit to this repository, GitHub Pages will run <a href="https://jekyllrb.com/">Jekyll</a> to rebuild the pages in your site, from the content in your Markdown files.</p>
 
 <h3 id="markdown">Markdown</h3>
 
@@ -58,8 +54,6 @@
 
 <span class="p">[</span><span class="nv">Link</span><span class="p">](</span><span class="sx">url</span><span class="p">)</span> and !<span class="p">[</span><span class="nv">Image</span><span class="p">](</span><span class="sx">src</span><span class="p">)</span>
 </code></pre></div></div>
-
-<p>For more details see <a href="https://guides.github.com/features/mastering-markdown/">GitHub Flavored Markdown</a>.</p>
 
 <h3 id="jekyll-themes">Jekyll Themes</h3>
 
