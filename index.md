@@ -12,5 +12,3 @@
 <meta property="og:site_name" content="GABB-Source" />
 <script type="application/ld+json">
 {"headline":"","@type":"WebSite","url":"https://srmotion.github.io/GABB-Source/","description":"Edited Growtopia Gabb Source","name":"GABB-Source","@context":"https://schema.org"}</script>
-  </body>
-</html>
