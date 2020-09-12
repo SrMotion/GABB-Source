@@ -3,7 +3,6 @@
     <meta charset="UTF-8">
 <title>GABB-Source</title>
 <meta name="generator" content="Jekyll v3.9.0" />
-<meta property="og:title" content="Welcome to GitHub Pages" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Edited Growtopia Gabb Source" />
 <meta property="og:description" content="Edited Growtopia Gabb Source" />
